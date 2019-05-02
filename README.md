@@ -41,21 +41,50 @@ No Docker, podemos encontrar esse socket em */var/run/docker.sock*.
 
 ---
 
-### Containers? O que são?
+### Client 
 
-explicar como funciona, desde o simples até a camada do SO
+É a forma como o usuário vai se comunicar com a API do Docker, usando comandos como:
+
+```s
+docker ps
+```
+
+É possível também se comunicar com diversos daemons.
+
+### Daemon
+
+É o componente responsável por ouvir a API e controlar os objetos do Docker, como containers, imagens, drivers de rede, volumes e outros. Veja mais [aqui](https://docs.docker.com/engine/docker-overview/).
+
+O daemon pode se comunicar com diversos serviços do Docker.
+
+Ao ser chamado, o daemon vai ter acesso e realizará alguma ação sobre algum objeto.
+
+### Images
+
+É um objeto de somente leitura, que serve como template para criar um container.
+Podemos criar as nossas imagens, que por sua vez serão feitas sobre outras imagens.
+
+### Containers
+
+Containers são instâncias de imagens. Podemos criar, iniciar, parar e deletar containers usando o client do Docker.
+
+O client se conecta com o socket e é lido pelo daemon. Assim, temos a reprodução no sistema operacional do host.
+
+Por padrão, um container é isolado do restante do host, inclusive de outros containers do Docker. Isso pode ser alterado, mas devemos configurar isso manualmente.
+
+### Registry
+
+São serviços, públicos ou privados, que permitem o armazenamento de imagens.
+
+Temos como registry default do Docker o Docker Hub.
+
+Lá é possível criar repositórios para versionar suas imagens, esses repositórios podem ser públicos ou privados.
 
 ### Qual a diferença entre um container e uma VM?
 
 https://www.youtube.com/watch?v=L1ie8negCjc
 
-usar imagem para isso, explicar como cada um funciona partindo do SO.
-
-### Images e Registries
-
-o que é uma imagem
-
-para que serve um registry
+A principal diferença entre eles, é que: em uma máquina virtual, as dependências da minha aplicação ficam instaladas no sistema operacional virtualizado, enquanto que, num ambiente de containers, essas dependências estão impacotadas dentro do meu container e não interagem com o meu sistema operacional.
 
 ## Instalando o Docker
 
@@ -123,4 +152,14 @@ como instalar
 
 usando docker-compose
 
-uma app dotnet que se comunica com o banco de dados 
+uma app dotnet que se comunica com o banco de dados.
+
+## Bibliografia
+
+- https://medium.com/@yannmjl/what-is-docker-in-simple-english-a24e8136b90b
+- https://docs.docker.com/engine/docker-overview/
+- https://unix.stackexchange.com/questions/243265/how-to-get-more-info-about-socket-file
+- https://becode.com.br/o-que-e-api-rest-e-restful/
+- https://docs.docker.com/engine/api/v1.24/
+- https://github.com/docker
+- https://www.youtube.com/watch?v=L1ie8negCjc
