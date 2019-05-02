@@ -308,13 +308,11 @@ ONBUILD # trigger para ações
 
 ## Rodando um container de Tomcat
 
-mostrar o Dockerfile
+Aqui temos algumas tarefas:
 
-falar sobre a alteração na senha de manager
-
-construir a imagem
-
-rodar o container e visitar a página web
+    - Criar um container de Tomcat usando Dockerfile
+    - Trocar o arquivo tomcat-users.xml
+    - Abrir a console do Tomcat no nosso host     
 
 ## Problemas encontrados
 
