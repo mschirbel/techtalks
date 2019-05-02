@@ -2,7 +2,19 @@
 
 ## O que é Docker?
 
-o que é o docker, como surgiu e código aberto
+Docker é uma ferramenta feita para construir, implantar e fazer funcionar aplicações usando containers.
+
+É também conhecido como gerenciador de containers.
+
+Foi criado pela **Docker, Inc** no ano de 2013. Desde a sua criação, seu código é aberto e pode ser visto [aqui](https://github.com/docker).
+
+## Como o Docker funciona
+
+explicar sobre o daemon
+
+conexao com registries
+
+processo de imagem -> container
 
 ### Containers? O que são?
 
@@ -19,14 +31,6 @@ usar imagem para isso, explicar como cada um funciona partindo do SO.
 o que é uma imagem
 
 para que serve um registry
-
-## Como o Docker funciona
-
-explicar sobre o daemon
-
-conexao com registries
-
-processo de imagem -> container
 
 ## Instalando o Docker
 
