@@ -88,15 +88,34 @@ Podemos ver mais [aqui](https://www.youtube.com/watch?v=L1ie8negCjc).
 
 ## Instalando o Docker
 
-Mostrar o script que foi feito para isso - não vou instalar, pois vou usar o play with docker
+### Linux
+
+Temos o script **setup.sh** com as instalações usando dois package managers, *apt* e *yum*. Também temos a instalação do Docker com os binários e download do *docker-compose* e *docker-machine*.
+
+### Windows
+
+Devemos usar o Docker ToolBox, disponibilizado pela Docker, Inc, disponível [aqui](https://docs.docker.com/docker-for-windows/install/).
+
+Caso queira ver um tutorial, assista [este](https://www.youtube.com/watch?v=ymlWt1MqURY) vídeo.
 
 ### Passos para verificar se a instalação está correta
 
-tem conexão com o docker daemon
+Para verificarmos se a nossa instalação está correta, devemos checar se:
 
-se tem conexao com o dockerhub
+1. temos acesso a CLI do Docker Client
+2. temos acesso ao daemon
 
-verificar versao do composer
+Para testar a CLI:
+
+```
+docker -v
+```
+
+Para testar o daemon:
+
+```
+docker ps
+```
 
 ## Rodando um container de MySQL
 
