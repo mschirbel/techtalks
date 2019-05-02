@@ -82,15 +82,15 @@ Lá é possível criar repositórios para versionar suas imagens, esses reposit�
 
 ### Qual a diferença entre um container e uma VM?
 
-https://www.youtube.com/watch?v=L1ie8negCjc
-
 A principal diferença entre eles, é que: em uma máquina virtual, as dependências da minha aplicação ficam instaladas no sistema operacional virtualizado, enquanto que, num ambiente de containers, essas dependências estão impacotadas dentro do meu container e não interagem com o meu sistema operacional.
+
+Podemos ver mais [aqui](https://www.youtube.com/watch?v=L1ie8negCjc).
 
 ## Instalando o Docker
 
 Mostrar o script que foi feito para isso - não vou instalar, pois vou usar o play with docker
 
-## Passos para verificar se a instalação está correta
+### Passos para verificar se a instalação está correta
 
 tem conexão com o docker daemon
 
