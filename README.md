@@ -306,13 +306,13 @@ WORKDIR # qual diretório trabalha
 ONBUILD # trigger para ações
 ```
 
-## Rodando um container de Tomcat
+## Rodando um container de Apache Web Server
 
 Aqui temos algumas tarefas:
 
-    - Criar um container de Tomcat usando Dockerfile
-    - Trocar o arquivo tomcat-users.xml
-    - Abrir a console do Tomcat no nosso host     
+    - Criar um container de Apache usando Dockerfile
+    - Trocar o arquivo index.html orinal pelo nosso modificado
+    - Abrir a página inicial do Apache pelo IP do nosso host     
 
 ## Problemas encontrados
 
