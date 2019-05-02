@@ -312,7 +312,42 @@ Aqui temos algumas tarefas:
 
     - Criar um container de Apache usando Dockerfile
     - Trocar o arquivo index.html orinal pelo nosso modificado
-    - Abrir a página inicial do Apache pelo IP do nosso host     
+    - Abrir a página inicial do Apache pelo IP do nosso host
+
+Nosso Dockerfile:
+
+```dockerfile
+FROM httpd:latest
+MAINTAINER mschirbel
+EXPOSE 80
+COPY ./index.html /usr/local/apache2/htdocs/
+```
+
+Nosso arquivo index.html novo:
+
+```html
+<html> 
+    <body>
+        <h1> Curso Docker</h1>
+        <h2> Olha que aula TOP</h2>
+        <h3> Se isso aqui abriu, é porque funcionou!</h3>
+    </body>    
+</html>
+```
+
+Para construir nossa imagem a partir do Dockerfile:
+
+```
+docker build . -t cursodocker
+```
+
+Você pode ver todos os parâmetros para build [aqui](https://docs.docker.com/engine/reference/commandline/image_build/).
+
+Para criar um container com a nossa nova imagem:
+
+```
+docker run -p 80:80 -d cursodocker
+```
 
 ## Problemas encontrados
 
@@ -356,3 +391,4 @@ uma app dotnet que se comunica com o banco de dados.
 - https://hub.docker.com/_/mysql
 - https://gitlab.com/mschirbel
 - https://www.mundodocker.com.br/o-que-e-dockerfile/
+- https://docs.docker.com/engine/reference/commandline/image_build/
