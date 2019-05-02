@@ -349,6 +349,8 @@ Para criar um container com a nossa nova imagem:
 docker run -p 80:80 -d cursodocker
 ```
 
+Podemos acessar nossa página via IP da nossa máquina, ou até mesmo de dentro do container.
+
 ## Problemas encontrados
 
 volumes & network
