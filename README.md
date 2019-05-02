@@ -279,11 +279,32 @@ docker container rm -f $(docker ps -aq)
 
 ## Explicar sobre Dockerfile
 
-o que é
+Bom, como vimos, é muito fácil subir um container. Mas os comandos podem ser extensos, e por muitas vezes, podemos nos confundir nos parâmetros.
 
-como escrever
+Sendo assim, seria viável termos uma forma de armazenarmos um template de uma imagem. E temos, usando um Dockerfile.
 
-por que eu deveria escrever um?
+Dockerfile é um arquivo onde podemos definir e preparar todo o ambiente a partir de um script de execução feito pelo próprio Docker.
+
+Como se fosse uma receita de bolo.
+
+Existem algumas instruções possívels no Dockerfile:
+
+```python
+FROM # informa qual será a imagem base, esse campo é o único obrigatório
+MAINTAINER # nome da pessoa que fez a nova imagem
+RUN # executa um comando dentro da imagem
+CMD # buffer de execução de um comando que pode ser feito via cli
+LABEL # adiciona metadados
+EXPOSE # expõe portas para o host
+ENV # passa variáveis de ambientes para a imagem
+ADD # adiciona arquivos locais ou de URL para dentro da imagem
+COPY # copia arquivos ou diretórios para dentro da imagem
+ENTRYPOINT # informa um comando para ser executado sempre quando a imagem iniciar
+VOLUME # mapeia um diretório no host para persistir os dados de um diretório da imagem
+USER # com qual usuário serão executadas as instruções de criação da imagem
+WORKDIR # qual diretório trabalha
+ONBUILD # trigger para ações
+```
 
 ## Rodando um container de Tomcat
 
@@ -336,3 +357,4 @@ uma app dotnet que se comunica com o banco de dados.
 - https://www.youtube.com/watch?v=L1ie8negCjc
 - https://hub.docker.com/_/mysql
 - https://gitlab.com/mschirbel
+- https://www.mundodocker.com.br/o-que-e-dockerfile/
