@@ -16,6 +16,31 @@ conexao com registries
 
 processo de imagem -> container
 
+O Docker usa uma arquitetura de **cliente-servidor**. O client e o server, podem ou não, estar na mesma máquina.
+
+O cliente é chamado de **docker client**.
+O servidor é chamado de **docker daemon**.
+
+Eles se comunicam por uma Unix Rest API, essa comunicação é feita por meio de um socket.
+
+Podemos ver mais sobre os *endpoints* do Docker [aqui](https://docs.docker.com/engine/api/v1.24/).
+
+##### O que é uma REST API?
+
+Uma REST API é uma interface que contém um conjunto de operações bem definidas sobre recursos.
+
+Você pode entender mais sobre API's clicando [aqui](https://becode.com.br/o-que-e-api-rest-e-restful/).
+
+##### O que é um socket?
+
+Um socket é um arquivo que serve para trocar informações entre processos.
+
+Você pode entender mais sobre sockets lendo essa [thread no stackoverflow](https://unix.stackexchange.com/questions/243265/how-to-get-more-info-about-socket-file).
+
+No Docker, podemos encontrar esse socket em */var/run/docker.sock*.
+
+---
+
 ### Containers? O que são?
 
 explicar como funciona, desde o simples até a camada do SO
