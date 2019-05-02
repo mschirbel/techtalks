@@ -64,6 +64,14 @@ Ao ser chamado, o daemon vai ter acesso e realizará alguma ação sobre algum o
 É um objeto de somente leitura, que serve como template para criar um container.
 Podemos criar as nossas imagens, que por sua vez serão feitas sobre outras imagens.
 
+Imagens tem o seguinte formato de identificação:
+
+<nome da imagem>:<tag>
+
+A tag é usada para diferenciar imagens com a mesma base. E usamos isso para versionar nossas imagens.
+
+Uma imagem do Docker é composta de **layers**. Cada camada é uma alteração que pode ser feita na imagem base.
+
 ### Containers
 
 Containers são instâncias de imagens. Podemos criar, iniciar, parar e deletar containers usando o client do Docker.
@@ -79,6 +87,8 @@ São serviços, públicos ou privados, que permitem o armazenamento de imagens.
 Temos como registry default do Docker o Docker Hub.
 
 Lá é possível criar repositórios para versionar suas imagens, esses repositórios podem ser públicos ou privados.
+
+O docker sempre vai procurar qualquer imagem localmente, se não encontrar no host, aí sim ele vai procurar nos registries públicos ou privados.
 
 ### Qual a diferença entre um container e uma VM?
 
@@ -117,13 +127,155 @@ Para testar o daemon:
 docker ps
 ```
 
+## Primeiro Container
+
+Vamos agora, rodar nosso primeiro container, com ele testaremos se temos acesso ao registry default do Docker, o Docker Hub:
+
+```
+docker run hello-world
+``` 
+
+Perceba que, a primeira coisa que o Docker fez foi procurar a imagem localmente:
+
+```
+Unable to find image 'hello-world:latest' locally
+```
+
+Como não especificamos nenhuma tag, por default foi usada a *latest* que é a última versão daquela imagem.
+
+Após isso, o Docker fez um **pull** da imagem em camadas:
+
+```
+latest: Pulling from library/hello-world
+1b930d010525: Pull complete
+```
+
+Após isso temos o output do container.
+
+Podemos ver a imagem que foi baixada:
+
+```
+docker image ls
+```
+
+Podemos ver o status do container:
+
+```
+docker ps -a
+```
+
 ## Rodando um container de MySQL
 
-comando para rodar um container de mysql - usando senha para root
+Nossa tarefa é:
 
-entrar no container
+- Criar o container com:
+    1. Um nome especial
+    2. Senha de root
+- Entrar no container
+- Executar alguns comandos de MySQL
+- Remover o container
 
-executar comandos de mysql dentro do contaiiner
+### Para criar nosso container
+
+```
+docker run --name mysql-test -e MYSQL_ROOT_PASSWORD=12qwaszx -d mysql:latest
+```
+
+O parâmetro *--name* é para referenciarmos o nome do nosso container. E o parâmetro *-e* é para indicarmos alguma variável de ambiente que desejamos ter no nosso container.
+
+No caso do MySQL, temos na [documentação oficial](https://hub.docker.com/_/mysql) que a variável **MYSQL_ROOT_PASSWORD** é a senha do usuário root.
+
+O parâmetro *-d* é para o container estar em *detach mode*, ou seja, ele rodará em background do nosso SO.
+
+E por fim, indicamos qual imagem e sua tag, queremos rodar.
+
+Vejamos agora nosso container:
+
+```
+docker ps
+```
+
+Podemos ver nossas imagens:
+
+```
+docker image ls -a
+```
+
+### Agora, queremos entrar no nosso container
+
+```
+docker exec <container-id> -it bash
+```
+
+Esse comando executará o comando **bash** dentro do container em modo interativo(*-i*) e com um pseudo TTY(*-t*), que é um terminal.
+
+### Executando comandos no container
+
+Podemos executar comandos simples de Unix:
+
+```
+hostname
+date
+ls -la /
+```
+
+Mas podemos ver que existe um processo do MySQL rodando:
+
+```
+mysql --version
+mysqld
+```
+
+Então, podemos entrar no banco de dados, pois temos um usuário e senha:
+
+```
+mysql -uroot -p12qwaszx
+```
+
+Agora podemos executar comandos de MySQL no nosso container:
+
+```mysql
+show databases;
+create database marcelo;
+use marcelo;
+create table pessoas(codigo int(3), primary key (codigo));
+```
+
+### Excluindo o container
+
+Para vermos quais são os containers do nosso Docker:
+
+```
+docker ps -a
+```
+
+Docker ps mostra somente os que estão rodando, o parâmetro *-a* mostra até os que estão parados.
+
+Para remover um container:
+
+```
+docker container rm <container-id>
+```
+
+Isso vai dar um erro, pois o container está rodando. Ou paramos o container ou forçamos a remoção.
+
+Para parar um container:
+
+```
+docker container stop <container-id>
+```
+
+Para remover com force:
+
+```
+docker container rm -f <container-id>
+```
+
+Para remover todos os containers:
+
+```
+docker container rm -f $(docker ps -aq)
+```
 
 ## Explicar sobre Dockerfile
 
@@ -182,3 +334,5 @@ uma app dotnet que se comunica com o banco de dados.
 - https://docs.docker.com/engine/api/v1.24/
 - https://github.com/docker
 - https://www.youtube.com/watch?v=L1ie8negCjc
+- https://hub.docker.com/_/mysql
+- https://gitlab.com/mschirbel
