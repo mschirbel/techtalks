@@ -35,14 +35,14 @@ echo "e sempre inicie o daemon do docker com o comando dockerd"
 
 ## Instalar docker-compose
 
-curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+# curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 
 echo "troque a versão para obter a mais recente"
 
 ## Instalar docker-machine
 
-base=https://github.com/docker/machine/releases/download/v0.14.0 &&
-  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
-  sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+#base=https://github.com/docker/machine/releases/download/v0.14.0 &&
+ # curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
+ # sudo install /tmp/docker-machine /usr/local/bin/docker-machine
 
 echo "também deve trocar a versão"
