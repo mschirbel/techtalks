@@ -12,12 +12,6 @@ Foi criado pela **Docker, Inc** no ano de 2013. Desde a sua criação, seu códi
 
 ## Como o Docker funciona
 
-explicar sobre o daemon
-
-conexao com registries
-
-processo de imagem -> container
-
 O Docker usa uma arquitetura de **cliente-servidor**. O client e o server, podem ou não, estar na mesma máquina.
 
 O cliente é chamado de **docker client**.
