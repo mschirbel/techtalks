@@ -416,6 +416,12 @@ ONBUILD # trigger para ações
 
 ## Rodando um container de Apache Web Server
 
+Para verificarmos os arquivos, entre na nossa pasta do exemplo:
+
+```
+cd curso-docker/apache-example/
+```
+
 Aqui temos algumas tarefas:
 
     - Criar um container de Apache usando Dockerfile
