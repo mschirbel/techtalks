@@ -1,5 +1,5 @@
 <?php
-$servername = "db";
+$servername = "db:3306";
 $username = "tsbrdocker";
 $password = "docker";
 
