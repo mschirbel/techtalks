@@ -1,8 +1,8 @@
 
 {
-  "name": "desafio-avec",
+  "name": "desafio-tsbr",
   "version": "1.0.1",
-  "description": "Desafio Avec for DevOps",
+  "description": "Desafio TSBR for DevOps",
   "main": "app.js",
   "repository": "",
   "scripts": {
