@@ -2,6 +2,7 @@ version: '3'
 services:
   web:
     build: webserver/.
+    container_name: wb-tsbr-docker
     ports:
       - 80:80
     networks:
@@ -16,6 +17,17 @@ services:
       - mysqldbv:/var/lib/mysql
     networks: 
       - overlay
+  adminer:
+    image: adminer
+    restart: always
+    container_name: ad-tsbr-docker
+    ports:
+      - 8080:8080
+    networks:
+      - overlay
+    depends_on:
+      - db
+      - web
 
 volumes:
   mysqldbv:
