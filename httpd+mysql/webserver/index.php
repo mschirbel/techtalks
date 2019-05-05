@@ -12,7 +12,7 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully to the Database";
 
-echo "Check the content of the table People:"
+echo "Check the content of the table People:";
 
 $sql = "SELECT * FROM People";
 $result = $conn->query($sql);
