@@ -11,7 +11,7 @@ services:
   db:
     image: mysql:latest
     restart: always
-    container_name: db
+    container_name: db-tsbr-docker
     volumes:
       - mysqldbv:/var/lib/mysql
     networks: 
@@ -20,7 +20,6 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: "true"
       MYSQL_USER: "tsbrdocker"
       MYSQL_PASSWORD: "docker"
-      MYSQL_DATABASE: "marcelo"
 
 volumes:
   mysqldbv:
