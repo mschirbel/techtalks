@@ -14,7 +14,7 @@ echo "Connected successfully to the Database";
 
 echo "Check the content of the table People:"
 
-$sql = "SELECT * FROM People"
+$sql = "SELECT * FROM People";
 $result = $conn->query($sql);
 
 if($result->num_rows > 0){
