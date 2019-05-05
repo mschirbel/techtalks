@@ -497,7 +497,7 @@ O nome do arquivo, por padrão é **docker-compose.yml**. Mas caso você queira 
 ```sh
 docker-compose up -f frontend.yml
 # Para criar e iniciar os containers descritos no arquivo frontend.yml
-**```**
+```
 
 ## Rodando nossa LAMP Stack
 
