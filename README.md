@@ -82,6 +82,57 @@ O client se conecta com o socket e é lido pelo daemon. Assim, temos a reproduç
 
 Por padrão, um container é isolado do restante do host, inclusive de outros containers do Docker. Isso pode ser alterado, mas devemos configurar isso manualmente.
 
+### Isolamento de Containers
+
+Para fazer o isolamento, tanto de containers para containers e do container para o host, o Docker usa algumas *features* do SO para tal.
+
+##### Namespaces
+
+Namespaces são uma característica do Kernel do Linux que dá uma camada de isolamento para o container. O Docker usa isso para impedir o contato com o sistems *host*.
+
+Existem alguns tipos de Namespaces:
+
+1. process ID
+2. mount
+3. IPC(inter process communication)
+4. user
+5. network
+
+Todas essas são usadas pelo Docker, e devem ser abusadas pelos usuários, pois além de proteger o host, oferecem mais segurança para a aplicação.
+
+Leia mais na [documentação oficial](https://docs.docker.com/engine/security/userns-remap/).
+
+##### CGroups
+
+Cgroups são outra característica do Kernel, que permite limitar os recursos alocados para cada container, sem que o container saiba que existe mais para usar. Podemos usar isso para:
+
+1. CPU
+2. Memoria
+3. Banda de Rede
+4. Disco
+5. Prioridade de processos
+
+Por exemplo, podemos dizer para um container usar uma certa quantidade de CPU, como no comando abaixo:
+
+```
+docker run -d --name='kasun_priority_1' --cpuset-cpus=0 --cpu-shares=20 ubuntu:lates
+```
+
+Veja [este](https://medium.com/@kasunmaduraeng/docker-namespace-and-cgroups-dece27c209c7) artigo para entender mais.
+
+##### SELinux
+
+SELinux é um sistema de rótulos. Cada processo tem um rótulo e cada arquivo no SO tem um rótulo.
+E escrever regras para acesso de rótulos de processos a rótulos de objetos, é chamado de *policy*.
+
+SELinux significa **Security Enhanced Linux**.
+
+O docker usa isso para evitar o contato de containers com containers e do container com os processos do Host de uma forma segura e eficar.
+
+Pode-se ler mais sobre isso [aqui](https://opensource.com/business/13/11/selinux-policy-guide)
+
+Se quiser um guia detalhado, clique [aqui](https://opensource.com/business/13/11/selinux-policy-guide).
+
 ### Registry
 
 São serviços, públicos ou privados, que permitem o armazenamento de imagens.
@@ -399,17 +450,58 @@ Você pode ler mais sobre networks na [documentação oficial](https://docs.dock
 
 ## Docker-compose
 
-o que é
+Docker Compose é uma ferramenta para auxiliar a rodar múltiplos containers, conectados ou não.
 
-para o que serve
+Docker Compose usa YAML, uma linguagem declarativa, semelhante ao Dockerfile, para produzir sua stack.
 
-como instalar
+Usamos o Compose para evitar problemas em administrar múltiplas stacks, visto que o processo que usamos é altamente manual, logo, temos grande chance de erro humano.
 
-## Rodando nosso sistema dotnet e MySQL
+Caso queira alguns exemplo, veja [aqui](https://blog.alura.com.br/compondo-uma-aplicacao-com-o-docker-compose/) e [aqui](https://imasters.com.br/banco-de-dados/docker-compose-o-que-e-para-que-serve-o-que-come).
 
-usando docker-compose
+Para ler a documentação oficial, clique [aqui](https://docs.docker.com/compose/).
 
-uma app dotnet que se comunica com o banco de dados.
+O Docker compose tem alguns comandos essenciais:
+
+```sh
+docker-compose up
+# Para criar e iniciar os containers descritos no arquivo
+```
+
+```sh
+docker-compose down
+# Para pausar e destruir os containers descritos no arquivo
+```
+
+```sh
+docker-compose stop
+# Para pausar descritos no arquivo
+```
+
+```sh
+docker-compose start
+# Para iniciar os containers descritos no arquivo
+```
+
+```sh
+docker-compose restart
+# Para pausar e iniciar os containers descritos no arquivo
+```
+
+```sh
+docker-compose config
+# Para validar o arquivo
+```
+
+O nome do arquivo, por padrão é **docker-compose.yml**. Mas caso você queira um arquivo com o nome diferentes, todos os comandos devem conter o parâmetro *-f*:
+
+```sh
+docker-compose up -f frontend.yml
+# Para criar e iniciar os containers descritos no arquivo frontend.yml
+**```**
+
+## Rodando nossa LAMP Stack
+
+LAMP: Linux + Apache + MySQL + PHP
 
 ## Bibliografia
 
