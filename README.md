@@ -434,8 +434,9 @@ cd curso-docker/apache-example/
 
 Aqui temos algumas tarefas:
 
-    - Criar um container de Apache usando Dockerfile
+    - Criar uma imagem de Apache usando Dockerfile
     - Trocar o arquivo index.html orinal pelo nosso modificado
+    - Subir um container com a nossa imagem nova
     - Abrir a página inicial do Apache pelo IP do nosso host
 
 Nosso Dockerfile:
