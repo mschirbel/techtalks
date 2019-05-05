@@ -74,6 +74,51 @@ A tag é usada para diferenciar imagens com a mesma base. E usamos isso para ver
 
 Uma imagem do Docker é composta de **layers**. Cada camada é uma alteração que pode ser feita na imagem base.
 
+Como a imagem é composta de layers, o Docker vai criando containers intermediários para realizar os processos descritos no Dockerfile. Após realizar o comando, ele salva esse container intermediário para ser usado no próximo comando, e depois remove o container intermediário, como mostrado abaixo:
+
+```
+Status: Downloaded newer image for mysql:5.7.26
+ ---> 2f52e94d8acb
+Step 2/7 : MAINTAINER marceloschirbel
+ ---> Running in d19655b10b43
+Removing intermediate container d19655b10b43
+ ---> 5482816cf552
+Step 3/7 : ENV MYSQL_DATABASE=marcelo
+ ---> Running in 2690920f4b02
+Removing intermediate container 2690920f4b02
+ ---> 6adb63a10661
+Step 4/7 : ENV MYSQL_RANDOM_ROOT_PASSWORD=true
+ ---> Running in f211ab2ffe5c
+Removing intermediate container f211ab2ffe5c
+ ---> ddcfe3fa132d
+Step 5/7 : ENV MYSQL_USER=tsbrdocker
+ ---> Running in 66c9eec412a7
+Removing intermediate container 66c9eec412a7
+ ---> 2b1f4de6311e
+Step 6/7 : ENV MYSQL_PASSWORD=docker
+ ---> Running in 68db7a454038
+Removing intermediate container 68db7a454038
+ ---> 20ea394ca126
+Step 7/7 : COPY ./setup.sql /docker-entrypoint-initdb.d/
+ ---> aa0d483ba2bc
+Successfully built aa0d483ba2bc
+Successfully tagged httpdmysql_db:latest
+```
+
+Veja que, estamos baixando a imagem do mysql5.7 e vamos executar diversos comandos dentro dela. É criado containers intermediários que logo serão removidos, até que no final, uma imagem fique pronta com tudo o que escrevemos no Dockerfile.
+
+Se verificarmos as imagens:
+
+```
+docker image ls -a
+```
+
+Veja que aparece a imagem que criamos com o mesmo ID que apareceu na build, **aa0d483ba2bc**:
+
+```
+httpdmysql_db       latest              aa0d483ba2bc        2 minutes ago        373MB
+```
+
 ### Containers
 
 Containers são instâncias de imagens. Podemos criar, iniciar, parar e deletar containers usando o client do Docker.
