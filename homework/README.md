@@ -24,6 +24,7 @@ Lembrando que:
 
     - Essa aplicação node só escuta a porta 3000.
     - você não pode alterar o código
+    - o código a ser usado está na pasta app. Use essa pasta dentro do seu container
 
 Depois que você subir a aplicação, veja que ela sobe com a seguinte mensagem: 'Olá, pessoa'.
 
