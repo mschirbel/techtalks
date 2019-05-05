@@ -536,6 +536,8 @@ Docker Compose é uma ferramenta para auxiliar a rodar múltiplos containers, co
 
 Docker Compose usa YAML, uma linguagem declarativa, semelhante ao Dockerfile, para produzir sua stack.
 
+Para aprender mais sobre YAML, veja [este](https://www.tutorialspoint.com/yaml/index.htm) e [este](https://gettaurus.org/docs/YAMLTutorial/) tutoriais.
+
 Usamos o Compose para evitar problemas em administrar múltiplas stacks, visto que o processo que usamos é altamente manual, logo, temos grande chance de erro humano.
 
 Caso queira alguns exemplo, veja [aqui](https://blog.alura.com.br/compondo-uma-aplicacao-com-o-docker-compose/) e [aqui](https://imasters.com.br/banco-de-dados/docker-compose-o-que-e-para-que-serve-o-que-come).
