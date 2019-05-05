@@ -1,11 +1,13 @@
 version: '3'
 services:
   web:
-    image: php:7.2.1-apache
+    build: webserver/.
     ports:
       - 80:80
     networks:
       - overlay
+    depends_on:
+      - db
   db:
     image: mysql:latest
     restart: always
@@ -14,7 +16,7 @@ services:
     networks: 
       - overlay
     environment:
-      MYSQL_ROOT_PASSWORD: "12qwaszx"
+      MYSQL_RANDOM_ROOT_PASSWORD: "true"
       MYSQL_USER: "test"
       MYSQL_PASSWORD: "testpwd"
       MYSQL_DATABASE: "test"

@@ -1,7 +1,5 @@
 # Curso Docker
 
-https://docs.docker.com/compose/aspnet-mssql-compose/
-
 ## O que é Docker?
 
 Docker é uma ferramenta feita para construir, implantar e fazer funcionar aplicações usando containers.
