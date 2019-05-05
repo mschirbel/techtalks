@@ -17,9 +17,9 @@ services:
       - overlay
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: "true"
-      MYSQL_USER: "test"
-      MYSQL_PASSWORD: "testpwd"
-      MYSQL_DATABASE: "test"
+      MYSQL_USER: "tsbrdocker"
+      MYSQL_PASSWORD: "docker"
+      MYSQL_DATABASE: "marcelo"
 
 volumes:
   mysqldbv:
