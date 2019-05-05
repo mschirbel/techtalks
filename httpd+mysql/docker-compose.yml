@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    image: php:7.2.1-apache
+    ports:
+      - 80:80
+    networks:
+      - overlay
+  db:
+    image: mysql:latest
+    restart: always
+    volumes:
+      - mysqldbv:/var/lib/mysql
+    networks: 
+      - overlay
+    environment:
+      MYSQL_ROOT_PASSWORD: "12qwaszx"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "testpwd"
+      MYSQL_DATABASE: "test"
+
+volumes:
+  mysqldbv:
+
+networks:
+  overlay:
