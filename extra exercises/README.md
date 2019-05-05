@@ -1,12 +1,8 @@
-# Lição de Casa
-
-Então, pensou que ia ficar suave? Ha-Ha.
-
-Não.
+# Extra
 
 Faça um fork desse repositório e suba suas respostas no GitHub.
 
-A lição de casa é dividida em duas partes:
+Os exercícios estão divididos em duas partes:
 
 1. Um container com uma aplicação NodeJS.
 2. WordPress com Docker-compose
