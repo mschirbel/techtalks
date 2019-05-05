@@ -431,10 +431,20 @@ EXPOSE 80
 COPY ./index.html /usr/local/apache2/htdocs/
 ```
 
+Estamos usando a imagem mais nova do Apache.
+
+Depois usamos o **EXPOSE** para comunicar ao host qual porta estamos usando. Lembre-se que isso **não** faz a publicação da porta, isso deve ser feito pelo desenvolvedor, usando o parâmetro *--publish*.
+
+Logo depois, copiamos nosso arquivo index.html para o diretório padrão do Apache.
+
 Nosso arquivo index.html novo:
 
 ```html
-<html> 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>AULA TOP de Docker</title>
+    </head>
     <body>
         <h1> Curso Docker</h1>
         <h2> Olha que aula TOP</h2>
@@ -556,7 +566,28 @@ docker-compose up -f frontend.yml
 
 ## Rodando nossa LAMP Stack
 
-LAMP: Linux + Apache + MySQL + PHP
+LAMP: Linux + Apache + MySQL + PHP.
+
+Para verificarmos os arquivos, entre na nossa pasta do exemplo:
+
+```
+cd curso-docker/httpd+mysql/
+```
+
+Veja que temos algumas pastas e um arquivo docker-compose.yml.
+
+Na pasta *webserver* temos os arquivos necessários para criar a imagem do Apache com PHP.
+Na pasta *database* temos os arquivos para criar nossa imagem do MySQL com alguns dados já inclusos.
+
+No nosso arquivo *docker-compose.yml*, temos o modo como subir essa stack.
+
+Para subir a stack, use o comando:
+
+```
+docker-compose up -d
+```
+
+Usamos o parâmetro *-d* para estar *detach mode*, logo não veremos todo o output na tela.
 
 ## Bibliografia
 
