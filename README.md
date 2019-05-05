@@ -1,5 +1,7 @@
 # Curso Docker
 
+https://docs.docker.com/compose/aspnet-mssql-compose/
+
 ## O que é Docker?
 
 Docker é uma ferramenta feita para construir, implantar e fazer funcionar aplicações usando containers.
@@ -66,7 +68,9 @@ Podemos criar as nossas imagens, que por sua vez serão feitas sobre outras imag
 
 Imagens tem o seguinte formato de identificação:
 
+```
 <nome da imagem>:<tag>
+```
 
 A tag é usada para diferenciar imagens com a mesma base. E usamos isso para versionar nossas imagens.
 
@@ -277,7 +281,7 @@ Para remover todos os containers:
 docker container rm -f $(docker ps -aq)
 ```
 
-## Explicar sobre Dockerfile
+## Dockerfile
 
 Bom, como vimos, é muito fácil subir um container. Mas os comandos podem ser extensos, e por muitas vezes, podemos nos confundir nos parâmetros.
 
