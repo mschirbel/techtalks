@@ -151,6 +151,16 @@ Podemos ver mais [aqui](https://www.youtube.com/watch?v=L1ie8negCjc).
 
 ## Instalando o Docker
 
+Antes de começar a parte prática, baixe o material do curso na [página do Github](https://github.com/mschirbel/curso-docker).
+
+Ou use o comando abaixo:
+
+```git
+git clone https://github.com/mschirbel/curso-docker.git
+cd curso-docker
+ls -la
+```
+
 ### Linux
 
 Temos o script **setup.sh** com as instalações usando dois package managers, *apt* e *yum*. Também temos a instalação do Docker com os binários e download do *docker-compose* e *docker-machine*.
