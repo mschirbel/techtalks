@@ -115,7 +115,7 @@ Cgroups são outra característica do Kernel, que permite limitar os recursos al
 Por exemplo, podemos dizer para um container usar uma certa quantidade de CPU, como no comando abaixo:
 
 ```
-docker run -d --name='kasun_priority_1' --cpuset-cpus=0 --cpu-shares=20 ubuntu:lates
+docker run -d --name='cpu-test' --cpuset-cpus=0 --cpu-shares=20 ubuntu:lates
 ```
 
 Veja [este](https://medium.com/@kasunmaduraeng/docker-namespace-and-cgroups-dece27c209c7) artigo para entender mais.
