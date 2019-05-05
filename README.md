@@ -707,3 +707,5 @@ docker-compose up -d
 ```
 
 Usamos o parâmetro *-d* para estar *detach mode*, logo não veremos todo o output na tela.
+
+Podemos testar a chamada de URL com a porta 80 e 8080. Nossa página index.php nos dirá se houve sucesso em conectar com o Banco de Dados.
