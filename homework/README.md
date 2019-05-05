@@ -38,7 +38,7 @@ Pode usar qualquer versão do apache e do MySQL.
 
 Siga as recomendações:
 
-    - quaiquer variáveis de imagem devem estar no Dockerfile
+    - quaisquer variáveis de imagem devem estar no Dockerfile
     - use senha aleatória para o root do MySQL
     - crie um volume para o banco
     - coloque os serviços na mesma rede
