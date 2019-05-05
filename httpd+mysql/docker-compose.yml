@@ -9,17 +9,13 @@ services:
     depends_on:
       - db
   db:
-    image: mysql:latest
+    build: database/.
     restart: always
     container_name: db-tsbr-docker
     volumes:
       - mysqldbv:/var/lib/mysql
     networks: 
       - overlay
-    environment:
-      MYSQL_RANDOM_ROOT_PASSWORD: "true"
-      MYSQL_USER: "tsbrdocker"
-      MYSQL_PASSWORD: "docker"
 
 volumes:
   mysqldbv:
