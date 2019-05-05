@@ -8,6 +8,8 @@ Docker é uma ferramenta feita para construir, implantar e fazer funcionar aplic
 
 Foi criado pela **Docker, Inc** no ano de 2013. Desde a sua criação, seu código é aberto e pode ser visto [aqui](https://github.com/docker).
 
+Leia um [artigo bem bacana](https://medium.com/@yannmjl/what-is-docker-in-simple-english-a24e8136b90b).
+
 ## Como o Docker funciona
 
 O Docker usa uma arquitetura de **cliente-servidor**. O client e o server, podem ou não, estar na mesma máquina.
@@ -440,7 +442,7 @@ Nosso Dockerfile:
 
 ```dockerfile
 FROM httpd:latest
-MAINTAINER mschirbel
+MAINTAINER marceloschirbel
 EXPOSE 80
 COPY ./index.html /usr/local/apache2/htdocs/
 ```
@@ -591,9 +593,112 @@ cd curso-docker/httpd+mysql/
 Veja que temos algumas pastas e um arquivo docker-compose.yml.
 
 Na pasta *webserver* temos os arquivos necessários para criar a imagem do Apache com PHP.
+
+Nosso Dockerfile para a imagem do Apache+PHP:
+
+```dockerfile
+FROM php:7.2.1-apache
+MAINTAINER marceloschirbel
+RUN docker-php-ext-install pdo pdo_mysql mysqli
+COPY ./index.php /var/www/html/
+```
+
+E nosso arquivo index.php:
+
+```php
+<?php
+$servername = "db-tsbr-docker:3306";
+$username = "tsbrdocker";
+$password = "docker";
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully to the Database";
+?>
+```
+
 Na pasta *database* temos os arquivos para criar nossa imagem do MySQL com alguns dados já inclusos.
 
-No nosso arquivo *docker-compose.yml*, temos o modo como subir essa stack.
+Nossa imagem de MySQL será desse jeito:
+
+```dockerfile
+FROM mysql:5.7.26
+MAINTAINER marceloschirbel
+ENV MYSQL_DATABASE=tsbr
+ENV MYSQL_RANDOM_ROOT_PASSWORD=true
+ENV MYSQL_USER=tsbrdocker
+ENV MYSQL_PASSWORD=docker
+COPY ./setup.sql /docker-entrypoint-initdb.d/
+```
+
+E nosso script para popular o banco:
+
+```sql
+USE marcelo;
+CREATE TABLE People (
+    PersonID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    Cargo varchar(255),
+    Team varchar(255) 
+);
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (2567, 'Schirbel', 'Marcelo', 'Estagiario', 'MW');
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (3623, 'Cruz', 'Fernando', 'Gestor', 'SO e MW');
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (2579, 'Corassini', 'Nilton', 'Analista', 'MW');
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (9800, 'Fagundes', 'Eduardo', 'Analista', 'MW');
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (1365, 'Gusmao', 'Andre', 'Estagiario', 'MW');
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (7789, 'Assinato', 'Raissa', 'Estagiario', 'MW');
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (4241, 'Lins', 'Douglas', 'Estagiario', 'SO');
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (2245, 'Freitas', 'Matheus', 'Analista', 'BD');
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (6672, 'Guth', 'Lucas', 'Estagiario', 'BD');
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (8889, 'Silva', 'Gabriel', 'Analista', 'SO');
+```
+
+
+No nosso arquivo *docker-compose.yml*, temos o modo como subir essa stack. Incluiremos um Adminer, uma web console para visualizar e editar nosso banco de dados.
+
+```yaml
+version: '3'
+services:
+  web:
+    build: webserver/.
+    container_name: wb-tsbr-docker
+    ports:
+      - 80:80
+    networks:
+      - overlay
+    depends_on:
+      - db
+  db:
+    build: database/.
+    restart: always
+    container_name: db-tsbr-docker
+    volumes:
+      - mysqldbv:/var/lib/mysql
+    networks: 
+      - overlay
+      
+  adminer:
+    image: adminer
+    restart: always
+    container_name: ad-tsbr-docker
+    ports:
+      - 8080:8080
+    networks:
+      - overlay
+    depends_on:
+      - db
+      - web
+
+volumes:
+  mysqldbv:
+
+networks:
+  overlay:
+```
 
 Para subir a stack, use o comando:
 
@@ -602,17 +707,3 @@ docker-compose up -d
 ```
 
 Usamos o parâmetro *-d* para estar *detach mode*, logo não veremos todo o output na tela.
-
-## Bibliografia
-
-- https://medium.com/@yannmjl/what-is-docker-in-simple-english-a24e8136b90b
-- https://docs.docker.com/engine/docker-overview/
-- https://unix.stackexchange.com/questions/243265/how-to-get-more-info-about-socket-file
-- https://becode.com.br/o-que-e-api-rest-e-restful/
-- https://docs.docker.com/engine/api/v1.24/
-- https://github.com/docker
-- https://www.youtube.com/watch?v=L1ie8negCjc
-- https://hub.docker.com/_/mysql
-- https://gitlab.com/mschirbel
-- https://www.mundodocker.com.br/o-que-e-dockerfile/
-- https://docs.docker.com/engine/reference/commandline/image_build/
