@@ -17,6 +17,7 @@ services:
       - mysqldbv:/var/lib/mysql
     networks: 
       - overlay
+      
   adminer:
     image: adminer
     restart: always
