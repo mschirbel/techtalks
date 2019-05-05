@@ -11,6 +11,7 @@ services:
   db:
     image: mysql:latest
     restart: always
+    container_name: db
     volumes:
       - mysqldbv:/var/lib/mysql
     networks: 

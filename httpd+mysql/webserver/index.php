@@ -1,7 +1,7 @@
 <?php
 $servername = "db";
-$username = "username";
-$password = "password";
+$username = "tsbrdocker";
+$password = "docker";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
