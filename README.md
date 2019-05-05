@@ -188,6 +188,14 @@ Lá é possível criar repositórios para versionar suas imagens, esses reposit�
 
 O docker sempre vai procurar qualquer imagem localmente, se não encontrar no host, aí sim ele vai procurar nos registries públicos ou privados.
 
+Caso queira ver o registry local do Docker no Play-With-Docker:
+
+```
+ls -la /var/lib/docker/image/
+```
+
+Caso queira ler mais sobre, clique [aqui](http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/).
+
 ### Qual a diferença entre um container e uma VM?
 
 A principal diferença entre eles, é que: em uma máquina virtual, as dependências da minha aplicação ficam instaladas no sistema operacional virtualizado, enquanto que, num ambiente de containers, essas dependências estão impacotadas dentro do meu container e não interagem com o meu sistema operacional.
