@@ -53,6 +53,12 @@ O daemon pode se comunicar com diversos serviços do Docker.
 
 Ao ser chamado, o daemon vai ter acesso e realizará alguma ação sobre algum objeto.
 
+A API do Docker pode ser encontrado em:
+
+```
+ls -la /var/run/docker.sock
+```
+
 ### Images
 
 É um objeto de somente leitura, que serve como template para criar um container.
@@ -285,7 +291,7 @@ Como se fosse uma receita de bolo.
 
 Existem algumas instruções possívels no Dockerfile:
 
-```python
+```dockerfile
 FROM # informa qual será a imagem base, esse campo é o único obrigatório
 MAINTAINER # nome da pessoa que fez a nova imagem
 RUN # executa um comando dentro da imagem
@@ -349,19 +355,47 @@ Podemos acessar nossa página via IP da nossa máquina, ou até mesmo de dentro 
 
 ## Problemas encontrados
 
-volumes & network
+Aqui encontramos dois grandes problemas:
+
+    1. nossos containers estão incomunicáveis
+    2. se apagarmos o nosso banco de dados, perderemos todos os dados.
+
+Isso pode ser resolvido usando Networks e Volumes.
 
 ### O que são Volumes
 
-como criar um
+Volumes são o mecanismo que o Docker usa para persistir dados que estão nos containers.
 
-para o que serve
+É um mapeamento do FS do container, que será replicado em algum diretório do host.
+Podem ser encontrado em:
+
+```
+ls -la /var/lib/docker/volumes/
+```
+
+Podemos usar diferentes volumes nos containers, por isso, uma migração de dados fica realmente fácil.
+
+Funcionam tanto em Linux e Windows containers.
+
+Pode-se ler mais sobre [aqui](https://docs.docker.com/storage/volumes/), que é o link da documentação oficial.
+
+Também tem [esse](https://www.mundodocker.com.br/montando-volumes-docker/) artigo do Mundo Docker, que é bem interessante também.
 
 ### Como funciona a rede do Docker
 
-drivers
+Com a rede do Docker, podemos conectar containers ou até mesmo a objetos que não são do Docker.
 
-links entre containers
+O sistema de networkd do Docker é volátil. Isso se deve pelo uso de drivers. Existem muitos pode default e podemos até instalar alguns novos.
+
+Alguns deles:
+
+    1. **bridge** usado para containers que não precisam de comunicação com nenhum outro serviço.
+    2. **overlay** usado para conectar múltiplos containers e serviços.
+    3. **none** não há rede. Geralmente esse é usado quando vc quer um *custom driver*.
+
+Você pode ler mais sobre networks na [documentação oficial](https://docs.docker.com/network/).
+
+[Aqui](https://medium.com/dockerbr/docker-trabalhando-com-network-64d0bf66263f) também tem um artigo bem legal sobre.
 
 ## Docker-compose
 
