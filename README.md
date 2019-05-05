@@ -497,7 +497,7 @@ Isso pode ser resolvido usando Networks e Volumes.
 
 ### O que são Volumes
 
-Volumes são o mecanismo que o Docker usa para persistir dados que estão nos containers.
+Volumes é o mecanismo que o Docker usa para persistir dados que estão nos containers.
 
 É um mapeamento do FS do container, que será replicado em algum diretório do host.
 Podem ser encontrado em:
