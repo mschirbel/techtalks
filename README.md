@@ -755,7 +755,17 @@ docker-compose up -d
 
 Usamos o parâmetro *-d* para estar *detach mode*, logo não veremos todo o output na tela e o processo ocorrerá em background.
 
-Podemos testar a chamada de URL com a porta 80 e 8080. Nossa página index.php nos dirá se houve sucesso na conexão com o Banco de Dados.
+Podemos testar a chamada de URL com a porta 80 e 8080. 
+
+Na porta 80 nossa página index.php nos dirá se houve sucesso na conexão com o Banco de Dados.
+Na porta 8080 teremos acesso a console do Adminer
+
+Para destruir nossa stack:
+
+```
+docker-compose down
+```
+
 
 ## Recomendações
 
