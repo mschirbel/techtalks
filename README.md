@@ -220,6 +220,14 @@ Caso queira ler mais sobre, clique [aqui](http://www.scmgalaxy.com/tutorials/loc
 
 A principal diferença entre eles, é que: em uma máquina virtual, as dependências da minha aplicação ficam instaladas no sistema operacional virtualizado, enquanto que, num ambiente de containers, essas dependências estão impacotadas dentro do meu container e não interagem com o meu sistema operacional.
 
+Outras diferenças estão, por exemplo, na camada de segurança. Enquanto a VM tem uma segurança elevada, o container depende muito das proteções oferecidas pelo Host.
+
+Quanto a utilização de disco, a VM gasta muito mais do que um container, este por sua vez, somente consome aquilo que foi utilizado pela aplicação e arquivos internos.
+
+Uma VM demora muito mais tempo para iniciar, pois deve carregar todo o sistema operacional, bem como carregar a aplicação. Enquanto que no container, só é necessário carregar a aplicação.
+
+A portabilidade é outro fator que realmente favorece o container. Pois temos a liberdade de criar imagens e subir para repositórios públicos e compartilhar com diversas pessoas no mundo em questão de segundos, enquanto que uma VM pode causar certas dificuldades.
+
 Podemos ver mais [aqui](https://www.youtube.com/watch?v=L1ie8negCjc).
 
 ## Instalando o Docker
