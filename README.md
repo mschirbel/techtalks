@@ -260,6 +260,12 @@ cd curso-docker
 ls -la
 ```
 
+No Docker para Windows temos a possibilidade de escolher entre Windows containers e Linux Containers. Você pode ler mais sobre a diferença entre eles [aqui](https://containerjournal.com/2016/10/28/linux-vs-windows-containers-whats-difference/).
+
+Mas ambos são feitos para abrigarem aplicações em containers e funcionarem nativamente, ou seja, sem máquinas virtuais. Ambos possuem a mesma portabilidade e as mesmas funcionalidades.
+
+Por hora, trabalharemos somente com Linux Containers.
+
 ### Linux
 
 Temos o script **setup.sh** com as instalações usando dois package managers, *apt* e *yum*. Também temos a instalação do Docker com os binários e download do *docker-compose* e *docker-machine*.
