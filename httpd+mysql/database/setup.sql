@@ -15,4 +15,4 @@ INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (7789, 'As
 INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (4241, 'Lins', 'Douglas', 'Estagiario', 'SO');
 INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (2245, 'Freitas', 'Matheus', 'Analista', 'BD');
 INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (6672, 'Guth', 'Lucas', 'Estagiario', 'BD');
-INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (8889, 'Silva', 'Gabriel', 'Analista', 'SO');
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (8889, 'Santos', 'Gabriel', 'Analista', 'SO');
