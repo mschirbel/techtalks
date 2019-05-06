@@ -1,4 +1,4 @@
-USE marcelo;
+USE tsbr;
 CREATE TABLE People (
     PersonID int,
     LastName varchar(255),
