@@ -620,7 +620,7 @@ docker-compose config
 # Para validar o arquivo
 ```
 
-O nome do arquivo, por padrão é **docker-compose.yml**. Mas caso você queira um arquivo com o nome diferentes, todos os comandos devem conter o parâmetro *-f*:
+O nome do arquivo, por padrão é **docker-compose.yml**. Mas caso você queira um arquivo com o nome diferente, todos os comandos devem conter o parâmetro *-f*:
 
 ```sh
 docker-compose up -f frontend.yml
@@ -701,7 +701,7 @@ INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (7789, 'As
 INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (4241, 'Lins', 'Douglas', 'Estagiario', 'SO');
 INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (2245, 'Freitas', 'Matheus', 'Analista', 'BD');
 INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (6672, 'Guth', 'Lucas', 'Estagiario', 'BD');
-INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (8889, 'Silva', 'Gabriel', 'Analista', 'SO');
+INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (8889, 'Santos', 'Gabriel', 'Analista', 'SO');
 ```
 
 
@@ -753,9 +753,9 @@ Para subir a stack, use o comando:
 docker-compose up -d
 ```
 
-Usamos o parâmetro *-d* para estar *detach mode*, logo não veremos todo o output na tela.
+Usamos o parâmetro *-d* para estar *detach mode*, logo não veremos todo o output na tela e o processo ocorrerá em background.
 
-Podemos testar a chamada de URL com a porta 80 e 8080. Nossa página index.php nos dirá se houve sucesso em conectar com o Banco de Dados.
+Podemos testar a chamada de URL com a porta 80 e 8080. Nossa página index.php nos dirá se houve sucesso na conexão com o Banco de Dados.
 
 ## Recomendações
 
