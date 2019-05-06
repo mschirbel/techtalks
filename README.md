@@ -71,9 +71,11 @@ docker ps
 
 O daemon pode se comunicar com diversos serviços do Docker.
 
-Ao ser chamado, o daemon vai ter acesso e realizará alguma ação sobre algum objeto.
+Ao ser chamado, o daemon vai ter acesso e realizará alguma ação sobre algum objeto, utilizando o socket da API.
 
-A API do Docker pode ser encontrado em:
+O processo é o seguinte: O usuário entra com um comando que chama o socket, este, será ouvido pelo daemon. O daemon, realizará alguma ação da API sobre algum objeto.
+
+O socket do Docker pode ser encontrado em:
 
 ```
 ls -la /var/run/docker.sock
