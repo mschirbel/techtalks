@@ -684,7 +684,6 @@ ENV MYSQL_DATABASE=tsbr
 ENV MYSQL_RANDOM_ROOT_PASSWORD=true
 ENV MYSQL_USER=tsbrdocker
 ENV MYSQL_PASSWORD=docker
-COPY ./setup.sql /docker-entrypoint-initdb.d/
 ```
 
 E nosso script para popular o banco:
@@ -765,6 +764,27 @@ Podemos testar a chamada de URL com a porta 80 e 8080.
 
 Na porta 80 nossa página index.php nos dirá se houve sucesso na conexão com o Banco de Dados.
 Na porta 8080 teremos acesso a console do Adminer
+
+Com isso, testamos a nossa network. E ela funciona. Agora vamos testar os volumes.
+
+Para isso, copie o script setup.sql para dentro do container do MySQL:
+
+```
+cd curso-docker/httpd+mysql/
+docker cp ./setup.sql <container-name>:/tmp/
+cd /tmp/
+mysql -utsbrdocker -pdocker < setup.sql
+```
+Agora entre no Banco e verifique se a tabela foi criada:
+
+```
+docker exec -it <container-name> /bin/bash
+use tsbr;
+show tables;
+select * from People
+```
+
+Agora vá na página do Adminer, logue com as credenciais e veja se podemos administrar a tabela
 
 Para destruir nossa stack:
 
