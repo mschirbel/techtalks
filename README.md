@@ -65,13 +65,15 @@ docker ps
 
 É possível também se comunicar com diversos daemons.
 
+Para ler mais sobre isso, veja [esse gist](https://gist.github.com/kekru/4e6d49b4290a4eebc7b597c07eaf61f2).
+
 ### Daemon
 
 É o componente responsável por ouvir a API e controlar os objetos do Docker, como containers, imagens, drivers de rede, volumes e outros. Veja mais [aqui](https://docs.docker.com/engine/docker-overview/).
 
 O daemon pode se comunicar com diversos serviços do Docker.
 
-Ao ser chamado, o daemon vai ter acesso e realizará alguma ação sobre algum objeto, utilizando o socket da API.
+Ao ser chamado, o daemon vai ter acesso ao socket e realizará alguma ação sobre algum objeto.
 
 O processo é o seguinte: O usuário entra com um comando que chama o socket, este, será ouvido pelo daemon. O daemon, realizará alguma ação da API sobre algum objeto.
 
@@ -83,8 +85,8 @@ ls -la /var/run/docker.sock
 
 ### Images
 
-É um objeto de somente leitura, que serve como template para criar um container.
-Podemos criar as nossas imagens, que por sua vez serão feitas sobre outras imagens.
+É um objeto somente de leitura, que serve como template para criar um container.
+Podemos criar as nossas imagens que, por sua vez, serão feitas sobre outras imagens.
 
 Imagens tem o seguinte formato de identificação:
 
@@ -127,7 +129,13 @@ Successfully built aa0d483ba2bc
 Successfully tagged httpdmysql_db:latest
 ```
 
-Veja que, estamos baixando a imagem do mysql5.7 e vamos executar diversos comandos dentro dela. É criado containers intermediários que logo serão removidos, até que no final, uma imagem fique pronta com tudo o que escrevemos no Dockerfile.
+Caso você queria ver todo o histórico das camadas:
+
+```
+docker history <image-id>
+```
+
+Veja que estamos baixando a imagem do mysql5.7 e vamos executar diversos comandos dentro dela. É criado containers intermediários que logo serão removidos, até que no final, uma imagem fique pronta com tudo o que escrevemos no Dockerfile.
 
 Se verificarmos as imagens:
 
@@ -141,6 +149,10 @@ Veja que aparece a imagem que criamos com o mesmo ID que apareceu na build, **aa
 httpdmysql_db       latest              aa0d483ba2bc        2 minutes ago        373MB
 ```
 
+Para juntar todas as camadas em uma só imagem, o Docker usa o AUFS(Another Union FileSystem), que é uma forma de Union Mount, uma *feature* que permite combinar vários diretórios em um único, que contém tudo.
+
+Se você quiser saber mais sobre como o Docker faz essa "ligação" entre as diversas camadas, leia sobre [Union Mount and Docker](https://medium.com/@paccattam/drooling-over-docker-2-understanding-union-file-systems-2e9bf204177c). Ou sobre [AUFS](https://medium.com/@jessgreb01/digging-into-docker-layers-c22f948ed612).
+
 ### Containers
 
 Containers são instâncias de imagens. Podemos criar, iniciar, parar e deletar containers usando o client do Docker.
@@ -148,6 +160,10 @@ Containers são instâncias de imagens. Podemos criar, iniciar, parar e deletar 
 O client se conecta com o socket e é lido pelo daemon. Assim, temos a reprodução no sistema operacional do host.
 
 Por padrão, um container é isolado do restante do host, inclusive de outros containers do Docker. Isso pode ser alterado, mas devemos configurar isso manualmente.
+
+O processo de criação de containers é realizado pelo *containerd*. Uma funcionalidade do *kernelspace*, no qual construímos uma camada de abstração entre o código e as chamadas de sistema, usando containers. É responsável por controlar o ciclo de vida de imagens, containers, storage e networks. [Aqui](https://github.com/containerd/containerd) temos o código fonte do *containerd* e sua explicação original.
+
+Leia mais sobre isso [neste](https://imasters.com.br/devsecops/o-que-e-o-containerd) artigo bem bacana.
 
 ### Isolamento de Containers
 
