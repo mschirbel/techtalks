@@ -1,5 +1,23 @@
 # Curso Docker
 
+## Objetivo
+
+O objetivo deste curso é apresentar os conceitos fundamentais do Docker. Mostrar a sua arquitetura e alguns comandos básicos.
+
+O conteúdo abordado inclui:
+
+1. Processos do Docker
+2. REST API
+3. Images
+4. Containers
+5. Regitries
+6. Volumes
+7. Network
+8. Dockerfile
+9. Docker-compose
+10. Exemplos práticos
+11. Exercícios extras
+
 ## O que é Docker?
 
 Docker é uma ferramenta feita para construir, implantar e fazer funcionar aplicações usando containers.
