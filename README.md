@@ -730,3 +730,12 @@ docker-compose up -d
 Usamos o parâmetro *-d* para estar *detach mode*, logo não veremos todo o output na tela.
 
 Podemos testar a chamada de URL com a porta 80 e 8080. Nossa página index.php nos dirá se houve sucesso em conectar com o Banco de Dados.
+
+## Recomendações
+
+Aqui farei algumas recomendações de cursos livres, artigos e páginas com conteúdo sobre Docker e também DevOps:
+
+1. FAUN - Comunidade sobre DevOps, pode ser lido sobre [aqui](https://medium.com/faun)
+2. Docker from A to Z, um [ótimo curso](https://www.udemy.com/a-practical-guide-to-docker-swarm-and-jenkins/learn/v4/overview)
+3. Docker, Jenkins e Kubernetes - veja [aqui](https://www.udemy.com/missao-devops-jenkins-em-larga-escala-docker-e-kubernetes/learn/v4/overview).
+4. LinuxTIPS - canal excelente sobre DevOps e tem ótimos vídeos de Docker, [aqui](https://www.youtube.com/user/linuxtipscanal).
