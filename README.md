@@ -770,21 +770,29 @@ Com isso, testamos a nossa network. E ela funciona. Agora vamos testar os volume
 Para isso, copie o script setup.sql para dentro do container do MySQL:
 
 ```
-cd curso-docker/httpd+mysql/
+cd database
 docker cp ./setup.sql <container-name>:/tmp/
-cd /tmp/
-mysql -utsbrdocker -pdocker < setup.sql
 ```
 Agora entre no Banco e verifique se a tabela foi criada:
 
 ```
 docker exec -it <container-name> /bin/bash
+cd /tmp/
+mysql -utsbrdocker -pdocker < setup.sql
 use tsbr;
 show tables;
 select * from People
 ```
 
-Agora vá na página do Adminer, logue com as credenciais e veja se podemos administrar a tabela
+Agora vá na página do Adminer, logue com as credenciais e veja se podemos administrar a tabela.
+
+Agora, apague o container do DB e suba somente ele:
+
+```
+docker ps
+docker rm -f <container-db-name>
+docker-compose up -d db
+```
 
 Para destruir nossa stack:
 
