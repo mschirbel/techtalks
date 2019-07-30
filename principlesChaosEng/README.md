@@ -45,7 +45,7 @@ Mas não se preocupe em inserir todas as causas raíz dos possíveis problema. P
 
 Como os sistemas estão em constante mudança, devemos considerar nos testes todo o workload, inputs e possíveis saídas que teremos no ambiente produtivo.[9], pois é impossível determinar todas as possibilidades do sistema.
 
-Ainda assim, devemos considerar o bem-estar dos nossos clientes, ninguém quer que a sessão morra porque alguem estava brincando com algum serviço.[9]. Portanto, podemos utilizar algumas técnicas para termos um controle de grupo confiável e ainda assim testarmos as novas funcionalidades. É o que chamamos de Canary Deployment.
+Ainda assim, devemos considerar o bem-estar dos nossos clientes, ninguém quer que a sessão morra porque alguem estava brincando com algum serviço.[9]. Portanto, podemos utilizar algumas técnicas para termos um controle de grupo confiável e ainda assim testarmos as novas funcionalidades. Uma dessas técnicas é o Canary Deployment.
 
 ![](https://miro.medium.com/max/700/0*Td5RPXNrgFnRW1KX.)
 
