@@ -39,7 +39,7 @@ Erros acontecem. E para testar as hipóteses, devemos ter em mente quais são to
 
 Todos esses exemplos podem acontecer, e treinar para reagir bem a eles é o caminho certo[7]. É melhor ter uma recuperação rápida do que saber se previnir.
 
-Mas não se preocupe em inserir todas as causas raíz dos possíveis problema. Porque isso seria um trabalho interminável, é melhor inserir a falha frequentemente e se adaptar aos erros.[8]
+Mas não se preocupe em inserir todas as causas raíz dos possíveis problema. Porque isso seria um trabalho interminável, é melhor inserir a falha frequentemente e se adaptar aos erros.[8][10].
 
 ### Faça experimentos em produção
 
@@ -50,6 +50,55 @@ Ainda assim, devemos considerar o bem-estar dos nossos clientes, ninguém quer q
 ![](https://miro.medium.com/max/700/0*Td5RPXNrgFnRW1KX.)
 
 Com essa técnica, limitamos uma pequena parte do acesso a duas vias: um grupo de controle e um grupo com a nova atualização.A partir dos acessos gerados, estabelecemos uma nota para a nova atualização, com base nas métricas do nosso sistema estável. Se a nota foi maior ou igual a atual, é feito o deploy da nova atualização.
+
+### Faça automações nos testes
+
+Tanto a orquestração de testes, quanto as métricas coletadas devem ser automatizadas para rodar continuamente. O estudo do chaos engineering não é uma linha reta[10].
+
+## Pré requisitos do Chaos Engineering
+
+É algo incomum, termos os pré requistos posteriormente ao que devemos fazer, mas isso se faz necessário, uma vez que entendemos como os princípios se relacionam
+
+1. Ter uma cultura que não se apega a encontrar um culpado
+
+Isso é algo essencial visto que CE busca encontrar falhas. E um time com medo de ser reprimido pelos erros não fará um bom trabalho. E isso será ótimo nas diversas fases que temos do CE[12]
+
+2. Ter pequenas hipóteses
+
+É algo que acelera o trabalho para fazer os testes.
+
+3. Confiança no time
+
+Ter um time com o qual é possível confiar no trabalho e aprender em conjunto.
+
+## Ferramentas
+
+### Simian Army
+
+Simian vem do latim que significa macaco. O conjunto de ferramentas não está mais sendo mantido, assim como informado no GitHub[13]. 
+Apesar de não ser mais mantida, os princípios permanecem e podemos aprender com eles. Por isso, vamos dar uma olhada em algumas delas.
+Todas elas foram desenvolvidas em Go e podem ser executadas localmente.[16]
+
+#### Chaos Monkey
+
+Uma ferramenta desenvolvida para encerrar instâncias na AWS. Essa ferramenta foi apartada da Simian Army e seu desenvolvimento foi mantido, mas apenas ela[14].
+
+Para fazer o setup da ferramenta, siga o tutorial do Gremlin[15].
+
+#### Chaos Gorilla
+
+Essa ferramenta é desenvolvida para encerrar uma AZ(que representa um datacenter todo).
+
+#### Chaos Kong
+
+Chaos Kong simula a queda de uma region inteira.[7]
+
+#### Latency Monkey
+
+Latency Monkey simula delays artificiais em comunicações de cliente-servidor[17] Isso é uma ótima ferramenta para apontar possíveis fallbacks entre os serviços.
+
+### Chaos Kube
+
 
 
 ## Bibliografia
@@ -63,3 +112,12 @@ Com essa técnica, limitamos uma pequena parte do acesso a duas vias: um grupo d
 [7] Chaos Engineering Upgraded - https://medium.com/netflix-techblog/chaos-engineering-upgraded-878d341f15fa
 [8] Vary real world examples - https://www.oreilly.com/library/view/chaos-engineering/9781491988459/ch04.html
 [9] ChAP - new tool of Netflix - https://medium.com/netflix-techblog/chap-chaos-automation-platform-53e6d528371f
+[10] We are Netflix - https://open.spotify.com/episode/2iCED0figyXZ2HZxzIMa0E
+[11] Kubernetes and the Principles of Chaos Engineering - https://medium.com/@mschirbel/kubernetes-and-the-principles-of-chaos-engineering-part-1-504b8d02ba4f
+[12] Inside Azure Search: Chaos Engineering - https://azure.microsoft.com/en-us/blog/inside-azure-search-chaos-engineering/
+[13] Simian Army Repo - https://github.com/Netflix/SimianArmy
+[14] Chaos Monkey Repo -  https://github.com/netflix/chaosmonkey
+[15] Chaos Monkey Setup - https://www.gremlin.com/chaos-monkey/chaos-monkey-tutorial/
+[16] Simian Army Tools - https://www.gremlin.com/chaos-monkey/the-simian-army/
+[17] Netflix tech blog Simian Army - https://medium.com/netflix-techblog/the-netflix-simian-army-16e57fbab116
+[18] Chaos Kube - https://github.com/linki/chaoskube
