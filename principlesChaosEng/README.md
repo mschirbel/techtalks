@@ -99,7 +99,16 @@ Latency Monkey simula delays artificiais em comunicações de cliente-servidor[1
 
 ### Chaos Kube
 
+Uma ferramenta desenhada para encerrar pods dentro de um cluster de K8s. É uma ferramenta bem simples, mas que pode expor falhas que antes ficariam escondidas ou so bem raras.[18]
 
+### Chaos Blade
+
+Mais parece uma arma de um RPG, mas é uma ferramenta em fase de testes do Alibaba, que funciona em diversas plataformas.
+É baseada nos princípios que o Alibaba teve durante os 11 anos de experiência em Chaos[19].
+
+### Gremlin
+
+É um framework para Chaos Engineering, tendo sua versão gratuita e a versão paga.[20]
 
 ## Bibliografia
 
@@ -121,3 +130,5 @@ Latency Monkey simula delays artificiais em comunicações de cliente-servidor[1
 [16] Simian Army Tools - https://www.gremlin.com/chaos-monkey/the-simian-army/
 [17] Netflix tech blog Simian Army - https://medium.com/netflix-techblog/the-netflix-simian-army-16e57fbab116
 [18] Chaos Kube - https://github.com/linki/chaoskube
+[19] Chaos Blade - https://github.com/chaosblade-io/chaosblade
+[20] Gremlin Tool - https://www.gremlin.com/product/
