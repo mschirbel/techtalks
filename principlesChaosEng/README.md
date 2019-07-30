@@ -112,23 +112,23 @@ Mais parece uma arma de um RPG, mas é uma ferramenta em fase de testes do Aliba
 
 ## Bibliografia
 
-[1] Origem da palavra caos - http://michaelis.uol.com.br/busca?r=0&f=0&t=0&palavra=caos
-[2] O que é Engenharia do Caos - https://tegra.com.br/2018/10/22/engenharia-do-caos/
-[3] Chaos Monkey origem - https://www.gremlin.com/community/tutorials/chaos-engineering-the-history-principles-and-practice/#2010
-[4] Brief history of chaos eng. - https://www.itchronicles.com/software-development/chaos-engineering-introduction/
-[5] Principios do Caos - https://principlesofchaos.org/
-[6] Chaos Engineering, Ali Basiri, Niosha Behnam, Ruud de Rooij, Lorin Hochstein, Luke Kosewski, Justin Reynolds, Casey Rosenthal - https://arxiv.org/pdf/1702.05843.pdf
-[7] Chaos Engineering Upgraded - https://medium.com/netflix-techblog/chaos-engineering-upgraded-878d341f15fa
-[8] Vary real world examples - https://www.oreilly.com/library/view/chaos-engineering/9781491988459/ch04.html
-[9] ChAP - new tool of Netflix - https://medium.com/netflix-techblog/chap-chaos-automation-platform-53e6d528371f
-[10] We are Netflix - https://open.spotify.com/episode/2iCED0figyXZ2HZxzIMa0E
-[11] Kubernetes and the Principles of Chaos Engineering - https://medium.com/@mschirbel/kubernetes-and-the-principles-of-chaos-engineering-part-1-504b8d02ba4f
-[12] Inside Azure Search: Chaos Engineering - https://azure.microsoft.com/en-us/blog/inside-azure-search-chaos-engineering/
-[13] Simian Army Repo - https://github.com/Netflix/SimianArmy
-[14] Chaos Monkey Repo -  https://github.com/netflix/chaosmonkey
-[15] Chaos Monkey Setup - https://www.gremlin.com/chaos-monkey/chaos-monkey-tutorial/
-[16] Simian Army Tools - https://www.gremlin.com/chaos-monkey/the-simian-army/
-[17] Netflix tech blog Simian Army - https://medium.com/netflix-techblog/the-netflix-simian-army-16e57fbab116
-[18] Chaos Kube - https://github.com/linki/chaoskube
-[19] Chaos Blade - https://github.com/chaosblade-io/chaosblade
-[20] Gremlin Tool - https://www.gremlin.com/product/
+[1] Origem da palavra caos - http://michaelis.uol.com.br/busca?r=0&f=0&t=0&palavra=caos \
+[2] O que é Engenharia do Caos - https://tegra.com.br/2018/10/22/engenharia-do-caos/ \
+[3] Chaos Monkey origem - https://www.gremlin.com/community/tutorials/chaos-engineering-the-history-principles-and-practice/#2010 \
+[4] Brief history of chaos eng. - https://www.itchronicles.com/software-development/chaos-engineering-introduction/ \
+[5] Principios do Caos - https://principlesofchaos.org/ \
+[6] Chaos Engineering, Ali Basiri, Niosha Behnam, Ruud de Rooij, Lorin Hochstein, Luke Kosewski, Justin Reynolds, Casey Rosenthal - https://arxiv.org/pdf/1702.05843.pdf \
+[7] Chaos Engineering Upgraded - https://medium.com/netflix-techblog/chaos-engineering-upgraded-878d341f15fa \
+[8] Vary real world examples - https://www.oreilly.com/library/view/chaos-engineering/9781491988459/ch04.html \
+[9] ChAP - new tool of Netflix - https://medium.com/netflix-techblog/chap-chaos-automation-platform-53e6d528371f \
+[10] We are Netflix - https://open.spotify.com/episode/2iCED0figyXZ2HZxzIMa0E \
+[11] Kubernetes and the Principles of Chaos Engineering - https://medium.com/@mschirbel/kubernetes-and-the-principles-of-chaos-engineering-part-1-504b8d02ba4f \
+[12] Inside Azure Search: Chaos Engineering - https://azure.microsoft.com/en-us/blog/inside-azure-search-chaos-engineering/ \
+[13] Simian Army Repo - https://github.com/Netflix/SimianArmy \
+[14] Chaos Monkey Repo -  https://github.com/netflix/chaosmonkey \
+[15] Chaos Monkey Setup - https://www.gremlin.com/chaos-monkey/chaos-monkey-tutorial/ \
+[16] Simian Army Tools - https://www.gremlin.com/chaos-monkey/the-simian-army/ \
+[17] Netflix tech blog Simian Army - https://medium.com/netflix-techblog/the-netflix-simian-army-16e57fbab116 \
+[18] Chaos Kube - https://github.com/linki/chaoskube \
+[19] Chaos Blade - https://github.com/chaosblade-io/chaosblade \
+[20] Gremlin Tool - https://www.gremlin.com/product/ \
