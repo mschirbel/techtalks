@@ -75,6 +75,24 @@ Isso é algo essencial visto que CE busca encontrar falhas. E um time com medo d
 
 Ter um time com o qual é possível confiar no trabalho e aprender em conjunto.
 
+## Fases do Chaos Engineering
+
+1. Estado padrão
+
+Temos um estado em que conhecemos o comportamento usual, e temos métricas para basear nossa escolha
+
+2. Hipótese
+
+Construimos uma pequena hipótese do que de ruim poderia acontecer caso algum serviço ficasse indisponível
+
+3. Arquitetando o experimento
+
+Essa é a fase na qual tentamos controlar os estragos. Utilizando métricas e previsões para não impactar o cliente.
+
+4. Verificação e Aprendizado
+
+Com base nas métricas coletadas, concluímos se o experimento foi satisfatório e se a mudança deve ser aplicada para todo o sistema.
+
 ## Ferramentas
 
 ### Simian Army
