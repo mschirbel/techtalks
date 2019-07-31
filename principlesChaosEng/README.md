@@ -1,10 +1,9 @@
 # Principles of Chaos Engineering
 
-Teremos 3 partes principais:
+Teremos 2 partes principais:
 
 1. Definições e Aspectos Teóricos
 2. Algumas Ferramentas e suas capacidades
-3. Case de estudo - Netflix
 
 ## Definições e Aspectos Teóricos
 
