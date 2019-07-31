@@ -13,11 +13,11 @@ Logo, temos que Engenharia, ou ciência do Caos, é o estudo sobre como podemos 
 
 ## História do Chaos Engineering
 
-Em 2010 Netflix lançou o Chaos Monkey, o primeiro membro da Simian Army [3] E a partir daí, outras ferramentas foram lançadas, as quais veremos no decorrer desse estudo. Essa ferramenta só nasceu porque de 2007 a 2009, o site cresceu em 11.000 o número de títulos em seu catálogo[4]. Com toda essa necessidade de escalabilida e confiança no produto, o time decidiu que era hora de testar a resiliência do sistema. E com a migração para cloud, tudo ficou ainda mais fácil.
+Em 2010 Netflix lançou o Chaos Monkey, o primeiro membro da Simian Army [3] E a partir daí, outras ferramentas foram lançadas, as quais veremos no decorrer desse estudo. Essa ferramenta só nasceu porque de 2007 a 2009, o site cresceu em 11.000 o número de títulos em seu catálogo[4]. Com toda essa necessidade de escalabilidade e confiança no produto, o time decidiu que era hora de testar a resiliência do sistema. E com a migração para cloud, tudo ficou ainda mais fácil.
 
 ## Conway's Law
 
-A lei de Conway para design de sistemas diz que um time fará um sistema de acordo com o tipo de organização em que se encontra. Isso foi a fundação para a ideia que pequenos times produzem melhores resultados do que grandes times. Pois a organização de um time pequeno é, geralmente, muito mais clara do que um grande time.
+A lei de Conway para design de sistemas diz que um sistema será de acordo com o tipo de organização em que se encontra. Isso foi a fundação para a ideia que pequenos times produzem melhores resultados do que grandes times. Pois a organização de um time pequeno é, geralmente, muito mais clara do que um grande time.
 E isso tem um impacto enorme em Chaos Engineering, pois ao estudarmos a nossa infraestrutura, devemos perceber que os serviços devem ser interligados, assim como os times são.
 
 ## Princípios de Chaos Engineering
