@@ -59,6 +59,10 @@ Com essa técnica, limitamos uma pequena parte do acesso a duas vias: um grupo d
 
 Tanto a orquestração de testes, quanto as métricas coletadas devem ser automatizadas para rodar continuamente. O estudo do chaos engineering não é uma linha reta[10].
 
+### Minimize os impactos
+
+O cliente não deve saber quando os experimentos estão sendo feitos, muito menos ter alguma requisição cortada ou ficar esperando alguma request acontecer.
+
 ## Pré requisitos do Chaos Engineering
 
 É algo incomum, termos os pré requistos posteriormente ao que devemos fazer, mas isso se faz necessário, uma vez que entendemos como os princípios se relacionam
