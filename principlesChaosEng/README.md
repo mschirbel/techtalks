@@ -110,6 +110,19 @@ Mais parece uma arma de um RPG, mas é uma ferramenta em fase de testes do Aliba
 
 É um framework para Chaos Engineering, tendo sua versão gratuita e a versão paga.[20]
 
+## Conclusão
+
+  - Os principais desafios de Chaos Engineering são culturais, e não técnicos.
+      - Times passam muito tempo resolvendo bugs
+      - É algo muito político, principalmente em grandes empresas
+      - Requer tempo, disposição e comunicação entre times
+  - É algo particular
+      - As ferramentas podem ajudar
+      - Devemos pensar ao redor dos princípios
+  - Deve ser algo constante
+      - Ao criar um novo sistema
+      - Ao repensar um sistema já existente
+
 ## Bibliografia
 
 [1] Origem da palavra caos - http://michaelis.uol.com.br/busca?r=0&f=0&t=0&palavra=caos \
