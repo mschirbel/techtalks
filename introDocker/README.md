@@ -534,6 +534,8 @@ Para criar um container com a nossa nova imagem:
 docker run -p 80:80 -d cursodocker
 ```
 
+Para o parâmetro de publish, temos que o primeiro valor é a porta usada na máquina host, e o segundo é o valor usado pela aplicação dentro do container.
+
 Podemos acessar nossa página via IP da nossa máquina, ou até mesmo de dentro do container.
 
 ## Problemas encontrados
