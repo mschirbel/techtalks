@@ -1,14 +1,18 @@
 #!/bin/bash
 
+## Instalar para a maioria das distros de Linux
+
+curl -fsSL https://get.docker.com/ | bash
+
 ## Instalar com APT
 
-apt update -y
-apt install apt-transport-https ca-certificates curl gnupg software-properties-common -y
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-apt install docker.io -y
-systemctl enable docker
-systemctl start docker
-docker -v
+# apt update -y
+# apt install apt-transport-https ca-certificates curl gnupg software-properties-common -y
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# apt install docker.io -y
+# systemctl enable docker
+# systemctl start docker
+# docker -v
 
 ## Instalar com YUM
 
