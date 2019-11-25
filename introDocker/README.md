@@ -115,7 +115,7 @@ Step 4/7 : ENV MYSQL_RANDOM_ROOT_PASSWORD=true
  ---> Running in f211ab2ffe5c
 Removing intermediate container f211ab2ffe5c
  ---> ddcfe3fa132d
-Step 5/7 : ENV MYSQL_USER=tsbrdocker
+Step 5/7 : ENV MYSQL_USER=c6docker
  ---> Running in 66c9eec412a7
 Removing intermediate container 66c9eec412a7
  ---> 2b1f4de6311e
@@ -662,8 +662,8 @@ E nosso arquivo index.php:
 
 ```php
 <?php
-$servername = "db-tsbr-docker:3306";
-$username = "tsbrdocker";
+$servername = "db-c6-docker:3306";
+$username = "c6docker";
 $password = "docker";
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -682,9 +682,9 @@ Nossa imagem de MySQL será desse jeito:
 ```dockerfile
 FROM mysql:5.7.26
 MAINTAINER marceloschirbel
-ENV MYSQL_DATABASE=tsbr
+ENV MYSQL_DATABASE=c6
 ENV MYSQL_RANDOM_ROOT_PASSWORD=true
-ENV MYSQL_USER=tsbrdocker
+ENV MYSQL_USER=c6docker
 ENV MYSQL_PASSWORD=docker
 ```
 
@@ -719,7 +719,7 @@ version: '3'
 services:
   web:
     build: webserver/.
-    container_name: wb-tsbr-docker
+    container_name: wb-c6-docker
     ports:
       - 80:80
     networks:
@@ -729,7 +729,7 @@ services:
   db:
     build: database/.
     restart: always
-    container_name: db-tsbr-docker
+    container_name: db-c6-docker
     volumes:
       - mysqldbv:/var/lib/mysql
     networks: 
@@ -738,7 +738,7 @@ services:
   adminer:
     image: adminer
     restart: always
-    container_name: ad-tsbr-docker
+    container_name: ad-c6-docker
     ports:
       - 8080:8080
     networks:
@@ -780,8 +780,8 @@ Agora entre no Banco e verifique se a tabela foi criada:
 ```
 docker exec -it <container-name> /bin/bash
 cd /tmp/
-mysql -utsbrdocker -pdocker < setup.sql
-use tsbr;
+mysql -uc6docker -pdocker < setup.sql
+use c6;
 show tables;
 select * from People
 ```
