@@ -780,8 +780,8 @@ Agora entre no Banco e verifique se a tabela foi criada:
 ```
 docker exec -it <container-name> /bin/bash
 cd /tmp/
-mysql -utsbrdocker -pdocker < setup.sql
-use tsbr;
+mysql -uc6docker -pdocker < setup.sql
+use c6;
 show tables;
 select * from People
 ```
