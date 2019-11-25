@@ -1,4 +1,4 @@
-USE tsbr;
+USE c6;
 CREATE TABLE People (
     PersonID int,
     LastName varchar(255),
@@ -13,4 +13,3 @@ INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (1365, 'Pe
 INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (7789, 'Antonio', 'Jose', 'SRE', 'Onboarding');
 INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (4241, 'Cardoso', 'Israel', 'SRE', 'Onboarding');
 INSERT INTO People(PersonID, LastName, FirstName, Cargo, Team) VALUES (2245, 'Carlos', 'Antonio', 'SRE', 'Onboarding');
-
