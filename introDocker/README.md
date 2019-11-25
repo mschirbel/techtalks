@@ -802,6 +802,9 @@ Para destruir nossa stack:
 docker-compose down
 ```
 
+## Extra
+
+Dentro da pasta `extra-exercises` deixei alguns exercícios para praticar. Quaisquer dúvidas, podem me chamar.
 
 ## Recomendações
 
