@@ -1,6 +1,6 @@
 <?php
-$servername = "db-tsbr-docker:3306";
-$username = "tsbrdocker";
+$servername = "db-c6-docker:3306";
+$username = "c6docker";
 $password = "docker";
 
 // Create connection

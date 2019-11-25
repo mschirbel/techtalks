@@ -2,7 +2,7 @@ version: '3'
 services:
   web:
     build: webserver/.
-    container_name: wb-tsbr-docker
+    container_name: wb-c6-docker
     ports:
       - 80:80
     networks:
@@ -12,7 +12,7 @@ services:
   db:
     build: database/.
     restart: always
-    container_name: db-tsbr-docker
+    container_name: db-c6-docker
     volumes:
       - mysqldbv:/var/lib/mysql
     networks: 
@@ -21,7 +21,7 @@ services:
   adminer:
     image: adminer
     restart: always
-    container_name: ad-tsbr-docker
+    container_name: ad-c6-docker
     ports:
       - 8080:8080
     networks:
