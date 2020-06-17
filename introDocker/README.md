@@ -372,7 +372,7 @@ docker image ls -a
 ### Agora, queremos entrar no nosso container
 
 ```
-docker exec <container-id> -it bash
+docker exec -it <container-id> bash
 ```
 
 Esse comando executará o comando **bash** dentro do container em modo interativo(*-i*) e com um pseudo TTY(*-t*), que é um terminal.
