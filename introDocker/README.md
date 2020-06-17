@@ -406,7 +406,9 @@ Agora podemos executar comandos de MySQL no nosso container:
 show databases;
 create database marcelo;
 use marcelo;
+select database();
 create table pessoas(codigo int(3), primary key (codigo));
+show tables;
 ```
 
 ### Excluindo o container
