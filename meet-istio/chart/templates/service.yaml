@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{.Values.service.name}}
+  labels:
+    app: {{template "istiodemo.name" .}}
+    chart: {{template "istiodemo.chart" .}}
+    release: {{.Release.Name}}
+    heritage: {{.Release.Service}}
+spec:
+  type: {{.Values.service.type}}
+  ports:
+    - port: {{.Values.service.port}}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{template "istiodemo.name" .}}
+    release: {{.Release.Name}}

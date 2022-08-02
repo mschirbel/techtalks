@@ -1,0 +1,28 @@
+{{- if .Values.canaryDeployment.autoscaling.enabled }}
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ template "istiodemo.fullname" . }}canary
+  labels:
+    {{- include "istiodemo.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ template "istiodemo.fullname" . }}canary
+  minReplicas: {{ .Values.canaryDeployment.autoscaling.minReplicas }}
+  maxReplicas: {{ .Values.canaryDeployment.autoscaling.maxReplicas }}
+  metrics:
+    {{- if .Values.canaryDeployment.autoscaling.targetCPUUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: {{ .Values.canaryDeployment.autoscaling.targetCPUUtilizationPercentage }}
+    {{- end }}
+    {{- if .Values.canaryDeployment.autoscaling.targetMemoryUtilizationPercentage }}
+    - type: Resource
+      resource:
+        name: memory
+        targetAverageUtilization: {{ .Values.canaryDeployment.autoscaling.targetMemoryUtilizationPercentage }}
+    {{- end }}
+{{- end }}

@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{template "istiodemo.fullname" .}}
+  labels:
+    app: {{template "istiodemo.name" .}}
+    canary: "false"
+    chart: {{template "istiodemo.chart" .}}
+    release: {{.Release.Name}}
+    heritage: {{.Release.Service}}
+spec:
+  replicas: {{.Values.currentDeployment.replicaCount}}
+  selector:
+    matchLabels:
+      app: {{template "istiodemo.name" .}}
+      canary: "false"
+      release: {{.Release.Name}}
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
+        sidecar.jaegertracing.io/inject: "true"
+      labels:
+        app: {{template "istiodemo.name" .}}
+        canary: "false"
+        release: {{.Release.Name}}
+        version: {{.Values.version}}
+    spec:
+      serviceAccountName: {{ include "istiodemo.serviceAccountName" . }}
+      automountServiceAccountToken: false
+      containers:
+        - name: {{.Chart.Name}}
+          image: "{{ .Values.currentDeployment.image.repository }}:{{ .Values.currentDeployment.image.tag }}"
+          imagePullPolicy: {{.Values.currentDeployment.image.pullPolicy}}
+          env:          
+          {{- range $key, $val := .Values.currentDeployment.env }}
+            - name: {{ $key }}
+              value: {{ $val | quote }}
+          {{- end}}
+          ports:
+            - name: grpc
+              containerPort: {{.Values.service.port}}
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: {{.Values.service.port}}
+          readinessProbe:
+            tcpSocket:
+              port: {{.Values.service.port}}

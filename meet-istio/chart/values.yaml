@@ -1,0 +1,44 @@
+version: "1.0.0"
+
+service:
+  name: istiodemo
+  port: 80
+  type: ClusterIP
+  host: istiodemo.psvm.co
+
+serviceAccount:
+  create: true
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::607373615695:role/my-role
+
+currentDeployment:
+  replicaCount: 1
+  env:
+    SOME_ENV: env_value
+  weight: 50
+  image:
+    repository: 607373615695.dkr.ecr.eu-west-1.amazonaws.com/example-app
+    tag: v1
+    pullPolicy: IfNotPresent
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 5
+    targetCPUUtilizationPercent: 80
+    targetMemoryUtilizationPercent: 80
+
+canaryDeployment:
+  replicaCount: 1
+  env:
+    SOME_ENV: env_value
+  weight: 50
+  image:
+    repository: 607373615695.dkr.ecr.eu-west-1.amazonaws.com/example-app
+    tag: v2
+    pullPolicy: IfNotPresent
+  autoscaling:
+    enabled: true
+    minReplicas: 1
+    maxReplicas: 5
+    targetCPUUtilizationPercent: 80
+    targetMemoryUtilizationPercent: 80
